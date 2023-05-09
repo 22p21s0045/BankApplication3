@@ -4,7 +4,9 @@
  */
 package bankingapplication3;
 
+import bankingapplication3.BankConnection;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  *
@@ -42,20 +44,27 @@ public class Bankingapplication3 {
             switch (option) {
                 case 1:
                     bank.listAccounts();
+                    break;
+
                 case 2:
-                    number = 111;
-                    System.out.print("Enter Account name: ");
+                    Random rand = new Random();
+                    int randomNumber = rand.nextInt(1000) + 1;
+
+                    System.out.println("Enter Account name: ");
                     name = scan.nextLine();
+                    scan.nextLine();
+                    System.out.println(name);
                     System.out.println("Enter Initial Balance: ");
                     balance = scan.nextDouble();
+                    System.out.println(balance);
 
-                    account = new Account(number, name, balance);
+                    account = new Account(randomNumber, name, balance);
                     bank.openAccount(account);
+                    break;
                 case 3:
                     System.out.println("Enter account number: ");
                     number = scan.nextInt();
-                    
-                    
+
                     bank.closeAccount(number);
                     break;
                 case 4:
